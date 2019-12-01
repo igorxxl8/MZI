@@ -1,4 +1,5 @@
 #include "des.h"
+#include "gost28147.h"
 
 #define DEBUG
 
@@ -100,6 +101,10 @@ void prepareText(string& text)
 	while (((text.length() * CHAR_SIZE) % BLOCK_SIZE) != 0) {
 		text += SPEC_CHR;
 	}
+}
+
+void removeSpecChr(string& text) {
+	text.erase(remove_if(text.begin(), text.end(), [](char c) { return c == SPEC_CHR; }), text.end());
 }
 
 string toBinary(const string& text)
