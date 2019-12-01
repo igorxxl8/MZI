@@ -1,5 +1,4 @@
 #include "des.h"
-#include "gost28147.h"
 
 #define DEBUG
 
