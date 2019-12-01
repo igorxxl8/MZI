@@ -2,7 +2,7 @@
 
 #define DEBUG
 
-tuple<string, string> desCipher(string text, string key, DesMode mode)
+pair<string, string> desCipher(string text, string key, DesMode mode)
 {
 #ifdef DEBUG
 	cout << "DES" << endl
@@ -71,7 +71,7 @@ tuple<string, string> desCipher(string text, string key, DesMode mode)
 	cout << "Result: " << result << endl;
 	cout << "----------------------------" << endl;
 #endif // DEBUG
-	return tuple<string, string>(result, key);
+	return pair<string, string>(result, key);
 }
 
 void createBlocks(vector<string> &blocks, const string& text)
@@ -210,10 +210,10 @@ string toString(string text, bool removeSpecChr)
 	return output;
 }
 
-tuple<string, string> desEncrypt(string text, string key) {
+pair<string, string> desEncrypt(string text, string key) {
 	return desCipher(text, key);
 }
 
-tuple<string, string> desDecrypt(string text, string key) {
+pair<string, string> desDecrypt(string text, string key) {
 	return desCipher(text, key, DesMode::Decrypt);
 }

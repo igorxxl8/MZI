@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 #include <bitset>
-#include <tuple>
 #include "common.h"
 
 using namespace std;
@@ -33,6 +32,6 @@ string keyForPrevRound(string key);
 string toString(string input, bool removeSpecChr = false);
 
 
-tuple<string, string> desCipher(string text, string key, DesMode mode = DesMode::Encrypt);
-tuple<string, string> desEncrypt(string text, string key);
-tuple<string, string> desDecrypt(string text, string key);
+pair<string, string> desCipher(string text, string key, DesMode mode = DesMode::Encrypt);
+pair<string, string> desEncrypt(string text, string key);
+pair<string, string> desDecrypt(string text, string key);

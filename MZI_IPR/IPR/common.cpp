@@ -1,12 +1,12 @@
 #include "common.h"
 
-int greaterCommonDivisor(int a, int b) {
-	while (b != 0) {
-		a = b;
-		b = a % b;
-	}
 
-	return a;
+int s_int(string str)
+{
+	stringstream stream(str);
+	int res = 0;
+	stream >> res;
+	return res;
 }
 
 

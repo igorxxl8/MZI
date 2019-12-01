@@ -155,14 +155,19 @@
     <ClCompile Include="common.cpp" />
     <ClCompile Include="des.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="rsa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
     <ClInclude Include="des.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="rsa.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="des_data.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+    <Text Include="rsa_data.txt">
       <DeploymentContent>true</DeploymentContent>
     </Text>
   </ItemGroup>
