@@ -39,6 +39,16 @@ vector<uint8_t> gost(vector<uint8_t> data, vector<uint8_t> key)
 	return result;
 }
 
+void gost(uint8_t* data, uint8_t* key, uint8_t* res)
+{
+	auto textVector = vector<uint8_t>(data, data + 1024);
+	auto keyVector = vector<uint8_t>(key, key + 32);
+
+	auto result = gost(textVector, keyVector);
+
+	res = result.data();
+}
+
 vector<uint8_t> mutateBlock(vector<uint8_t> block, vector<uint32_t> keys)
 {
 	uint8_t* pBlock = block.data();

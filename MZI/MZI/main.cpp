@@ -5,19 +5,18 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <iomanip>
+#include <conio.h>
 
 #include "gost28147.h"
+#include "gost3411.h"
 #include "common.h"
 #include "des.h"
 #include "rsa.h"
 
 using namespace std;
 
-int main()
-{
-	srand(uint32_t(time(0)));
-	SetConsoleCP(65001);
-	SetConsoleOutputCP(65001);
+void ipr() {
 	cout << "DES" << endl;
 	string desData = readFile("des_data.txt");
 	auto text_key = split(desData, ',');
@@ -47,6 +46,36 @@ int main()
 	}
 	string decryptedRsa = decryptRsa(privateKey, encryptedRsa);
 	cout << endl << "Decrypted: " << decryptedRsa << endl;
+}
+
+void kr() {
+	
+	string hash_data = readFile("gost_hash.txt");
+
+	auto strs = split(hash_data, ',');
+
+	int i = 1;
+	for (auto it = strs.begin(); it != strs.end(); it++) {
+		auto str = *it;
+		uint8_t result[32];
+		gostHash((uint8_t*)(str.c_str()), str.length(), result);
+		cout << i++ << ") " << str << " -> " << "0x";
+		for (int i = 31; i >= 0; i--)
+			printf("%02X", result[i]);
+
+		cout << endl;
+	}
+}
+
+int main()
+{
+	srand(uint32_t(time(0)));
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
+	//ipr();
+	kr();
+
+	_getch();
 }
 
 

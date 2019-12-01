@@ -8,6 +8,7 @@ using namespace std;
 
 string gostEncrypt(string text, string key);
 vector<uint8_t> gost(vector<uint8_t> data, vector<uint8_t> key);
+void gost(uint8_t* data, uint8_t* key, uint8_t* res);
 vector<uint8_t> mutateBlock(vector<uint8_t> block, vector<uint32_t> keys);
 
 string gostDecrypt(string data, string key);
